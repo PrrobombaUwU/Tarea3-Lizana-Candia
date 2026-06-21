@@ -22,10 +22,8 @@ private:
 public:
     tlista();
     ~tlista();
-
-
-    /////
     void insertar(int edificio, int tiempo);
+    void actualizarTiempo(int tiempo);
 
     void imprimir() {
         Nodo* actual = head;
@@ -55,6 +53,10 @@ void tlista::insertar(int edificio, int tiempo) {
         tail = nuevo;
     }
     listSize++;
+}
+
+void tlista::actualizarTiempo(int tiempo) {
+    head->tiempo = tiempo;
 }
 
 tlista::tlista() {
@@ -97,14 +99,15 @@ class tGrafo {
             for(int i = 0; i< numEdificios; i++){
                 listaAdyacencia[i].insertar(i,tiempos[i]);
             }
-
         }
 
-        void agregarArco(int a, int b) {
-           
+        void agregarArco(int a, int b) {    
             prerequisitos++;
         }
 
+        void NuevoTiempo(int edificio, int tiempo) {
+            listaAdyacencia[edificio].actualizarTiempo(tiempo);
+        }
 
 //////////////////////////
         void imprimirGrafo() {
@@ -118,20 +121,6 @@ class tGrafo {
 
 ///////////////////////////77
 };
-
-void leerPrimeraLinea(const string& nombreArchivo, int& n, int& m, int& k) {
-    ifstream archivo(nombreArchivo);
-    if (!archivo.is_open()) {
-        cout << "Error al abrir el archivo." << endl;
-        return;
-    }
-
-    archivo >> n >> m >> k;
-
-    cout << "n=" << n << ", m=" << m << ", k=" << k << endl;
-    archivo.close();
-}
-
 
 void abrirarchivo() {
     cin.ignore(); // Limpiar el buffer de entrada
