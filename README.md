@@ -2,7 +2,8 @@
 
 ## Integrantes 
 
-Matias Candia - 202404611-k
+Matias Candia - 202404611-k 
+
 Karen lizana - 202141572-6
 
 ## Descripcion 
